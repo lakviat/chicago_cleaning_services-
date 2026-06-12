@@ -716,10 +716,45 @@ h1 {
   flex-wrap: wrap;
 }
 
-.footer-contact a,
-.socials a {
+.footer-contact a {
   color: rgba(255, 255, 255, 0.82);
   font-weight: 800;
+}
+
+.socials {
+  gap: 10px;
+}
+
+.socials a {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 8px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.socials a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.socials a:first-child svg {
+  fill: currentColor;
+  stroke: none;
 }
 
 .copyright {
