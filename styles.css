@@ -150,6 +150,71 @@ input {
   pointer-events: none;
 }
 
+.call-prompt {
+  min-width: 154px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.call-prompt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(47, 179, 109, 0) 0%,
+    rgba(47, 179, 109, 0.18) 24%,
+    rgba(47, 179, 109, 0.92) 50%,
+    rgba(47, 179, 109, 0.22) 76%,
+    rgba(47, 179, 109, 0) 100%
+  );
+  transform: translateX(-105%);
+  animation: callPromptLoad 2.35s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+.call-prompt::after {
+  z-index: 1;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent);
+  animation: callSweep 2.35s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+.call-prompt:hover {
+  background: rgba(47, 179, 109, 0.42);
+  border-color: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 16px 36px rgba(47, 179, 109, 0.28);
+}
+
+.call-prompt-icon,
+.call-prompt-text {
+  position: relative;
+  z-index: 2;
+}
+
+.call-prompt-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 0 0 rgba(47, 179, 109, 0.42);
+  animation: callIconPulse 2.35s ease-in-out infinite;
+}
+
+.call-prompt-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 @keyframes callSweep {
   0% {
     left: -50%;
@@ -160,10 +225,40 @@ input {
   }
 }
 
+@keyframes callPromptLoad {
+  0% {
+    transform: translateX(-105%);
+  }
+  52%,
+  100% {
+    transform: translateX(105%);
+  }
+}
+
+@keyframes callIconPulse {
+  0%,
+  100% {
+    transform: translateX(0);
+    box-shadow: 0 0 0 0 rgba(47, 179, 109, 0.35);
+  }
+  34% {
+    transform: translateX(3px);
+    box-shadow: 0 0 0 8px rgba(47, 179, 109, 0);
+  }
+  48% {
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .call-prompt::before,
   .call-motion::after {
     animation: none;
     display: none;
+  }
+
+  .call-prompt-icon {
+    animation: none;
   }
 }
 
