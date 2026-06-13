@@ -758,6 +758,35 @@ h1 {
   font-weight: 800;
 }
 
+.seo-section {
+  padding-top: 0;
+}
+
+.seo-copy {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 8px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+
+.seo-copy h2 {
+  color: var(--navy);
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.seo-copy p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.seo-copy p:last-child {
+  margin-bottom: 0;
+}
+
 .narrow {
   max-width: 840px;
 }
@@ -1043,6 +1072,14 @@ h1 {
   .split h2,
   .final-cta h2 {
     font-size: 30px;
+  }
+
+  .seo-copy {
+    padding: 22px;
+  }
+
+  .seo-copy h2 {
+    font-size: 24px;
   }
 
   .reviews-grid,
